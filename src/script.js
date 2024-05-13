@@ -1,13 +1,12 @@
 const video = document.getElementById('my-video');
 const playBtn = document.getElementById('play-btn');
-// const pauseBtn = document.getElementById('pause-btn');
 const stopBtn = document.getElementById('stop-btn');
 const seekBar = document.getElementById('seek-bar');
 const timestamp = document.getElementById('timestamp');
 const volumeBar = document.getElementById('volume-bar');
 const muteBtn = document.getElementById('mute-btn');
 const speedBtn = document.getElementById('speed-btn');
-const fullscreenButton = document.getElementById('full-screen-btn');
+const fullscreenBtn = document.getElementById('full-screen-btn');
 
 // Play & pause video
 function toggleVideoStatus() {
@@ -36,26 +35,13 @@ function updatePlayIcon() {
     }
 }
 
-/*
-// Play/Pause Functionality
-playBtn.addEventListener('click', () => {
-  video.play();
-});
-*/
-
+// Event listeners
 video.addEventListener('click', toggleVideoStatus);
 video.addEventListener('pause', updatePlayIcon);
 video.addEventListener('play', updatePlayIcon);
 
 playBtn.addEventListener('click', toggleVideoStatus);
-// pauseBtn.addEventListener('click', toggleVideoStatus);
 stopBtn.addEventListener('click', stopVideo);
-
-/*
-pauseBtn.addEventListener('click', () => {
-  video.pause();
-});
-*/
 
 // Seek functionality
 seekBar.addEventListener('input', () => {
@@ -157,7 +143,7 @@ speedBtn.addEventListener('click', () => {
 });
 
 // Fullscreen functionality
-fullscreenButton.addEventListener('click', () => {
+fullscreenBtn.addEventListener('click', () => {
   if (video.requestFullscreen) {
     video.requestFullscreen();
   } else if (video.mozRequestFullScreen) {
