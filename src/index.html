@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom HTML5 Video Player</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  
+<body>
+  <h1>Custom Video Player</h1>
+  <p>Welcome man!</p>
+  
+  <div class="video-container">
+    <!-- video -->
+    <div id="video">
+      <video width="640" height="360" id="my-video" preload="auto" tabindex="0"> 
+          <source src="vid_test.mp4"  type="video/mp4" />
+          <p>Your browser doesn't support HTML5 video.</p>
+      </video>
+    </div>
+
+    <!-- video controls -->
+    <div id="video-controls">
+      <button id="play-btn">Play</button>
+      <!-- <button id="pause-btn">Pause</button> -->
+      <button id="stop-btn">Stop</button>
+      <label for="Progress">Progress Bar</label>
+      <input type="range" id="seek-bar" value="0">
+      <label for="file">Downloading progress:</label>
+      <span class="timestamp" id="timestamp" tabindex="0">00:00 / 00:00</span>
+      <button id="speed-btn">Speed: 1x</button>
+      <button id="mute-btn">Mute: 🔊</button>
+
+      <div>
+        <br> <br>
+        <label for="Volume">Volume</label>
+        <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+      </div>
+
+      <div>
+        <button type="button" id="full-screen-btn">Fullscreen</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </div>
+
+</body>
+</html>

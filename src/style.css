@@ -1,0 +1,48 @@
+.video-container {
+  width: 640px;
+  margin: 0 auto;
+  padding: 2px;
+  text-align: center;
+  background-color: #1e293b;
+  border-radius: 5px;
+}
+
+#video-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  background-color: #1e293b;
+}
+
+#video-controls button,
+#video-controls input[type="range"] {
+  margin: 0 5px;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: #0f172a;
+  color: #ffffff;
+  cursor: pointer;
+}
+button[id="mute-btn"] {
+  height: 35px;
+  width: 35px;
+  padding: 2px;
+}
+button[id="speed-btn"] {
+  height: 35px;
+  width: 45px;
+  padding: 2px;
+}
+button:hover {
+  background-color: #020617;
+}
+
+input[type="range"] {
+  width: 200px;
+}
+
