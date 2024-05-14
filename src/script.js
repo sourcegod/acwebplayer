@@ -2,7 +2,8 @@ const video = document.getElementById('my-video');
 const playBtn = document.getElementById('play-btn');
 const stopBtn = document.getElementById('stop-btn');
 const seekBar = document.getElementById('seek-bar');
-const timestamp = document.getElementById('timestamp');
+const timestampCur = document.getElementById('timestamp-cur');
+const timestampDur = document.getElementById('timestamp-dur');
 const volumeBar = document.getElementById('volume-bar');
 const muteBtn = document.getElementById('mute-btn');
 const speedBtn = document.getElementById('speed-btn');
@@ -99,9 +100,11 @@ video.addEventListener('timeupdate', () => {
   }
 
   if (isHourDur) {
-    timestamp.innerHTML = `${hours}:${mins}:${secs} / ${hourDur}:${minDur}:${secDur}`;
+    timestampCur.innerHTML = `Current Time: ${hours}:${mins}:${secs}`;
+    timestampDur.innerHTML = `Total Time: ${hourDur}:${minDur}:${secDur}`;
   } else {
-    timestamp.innerHTML = `${mins}:${secs} / ${minDur}:${secDur}`;
+    timestampCur.innerHTML = `Current Time: ${mins}:${secs}`;
+    timestampDur.innerHTML = `Total Time: ${minDur}:${secDur}`;
   }
 
 });
