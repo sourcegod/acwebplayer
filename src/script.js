@@ -36,23 +36,8 @@ function updatePlayIcon() {
     }
 }
 
-// Event listeners
-video.addEventListener('click', toggleVideoStatus);
-video.addEventListener('pause', updatePlayIcon);
-video.addEventListener('play', updatePlayIcon);
-
-playBtn.addEventListener('click', toggleVideoStatus);
-stopBtn.addEventListener('click', stopVideo);
-
-// Seek functionality
-seekBar.addEventListener('input', () => {
-  const seekTime = (video.duration / 100) * seekBar.value;
-  video.currentTime = seekTime;
-});
-
-// Update seek bar as video plays
 // Update progress & timestamp
-video.addEventListener('timeupdate', () => {
+function updateVideoTime() {
   const currentTime = video.currentTime;
   const duration = video.duration;
   const progress = (currentTime / duration) * 100;
@@ -107,7 +92,44 @@ video.addEventListener('timeupdate', () => {
     timestampDur.innerHTML = `Total Time: ${minDur}:${secDur}`;
   }
 
+}
+
+
+
+
+function gotoTime(step=0, relative=true) {
+  let curTime = video.currentTime;
+  let duration = video.duration;
+  if (relative) {
+    step += curTime;
+    if (step < 0) step =0;
+    else if (step > duration) step = duration;
+
+  } else { // relative is false, so, jumping directly to the time
+    if (step < 0) step =0;
+    else if (step > duration) step = duration;
+
+  }
+  video.currentTime = step;
+
+}
+
+// Event listeners
+video.addEventListener('click', toggleVideoStatus);
+video.addEventListener('pause', updatePlayIcon);
+video.addEventListener('play', updatePlayIcon);
+
+playBtn.addEventListener('click', toggleVideoStatus);
+stopBtn.addEventListener('click', stopVideo);
+
+// Seek functionality
+seekBar.addEventListener('input', () => {
+  const seekTime = (video.duration / 100) * seekBar.value;
+  video.currentTime = seekTime;
 });
+
+// Calling funct to Update progress & timestamp
+video.addEventListener('timeupdate', updateVideoTime);
 
 // Volume functionality
 volumeBar.addEventListener('input', () => {
