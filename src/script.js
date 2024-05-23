@@ -1,9 +1,15 @@
 const video = document.getElementById('my-video');
+const testBtn = document.getElementById('test-btn');
+testBtn.style.visibility='hidden';
+
 const playBtn = document.getElementById('play-btn');
 const stopBtn = document.getElementById('stop-btn');
 const seekBar = document.getElementById('seek-bar');
 const timestampCur = document.getElementById('timestamp-cur');
 const timestampDur = document.getElementById('timestamp-dur');
+const rewindSecBtn = document.getElementById('rewind-sec-btn');
+const forwardSecBtn = document.getElementById('forward-sec-btn');
+
 const volumeBar = document.getElementById('volume-bar');
 const muteBtn = document.getElementById('mute-btn');
 const speedBtn = document.getElementById('speed-btn');
@@ -119,6 +125,10 @@ video.addEventListener('click', toggleVideoStatus);
 video.addEventListener('pause', updatePlayIcon);
 video.addEventListener('play', updatePlayIcon);
 
+testBtn.addEventListener('click', () => {
+  alert("Hello man!!!")
+});
+
 playBtn.addEventListener('click', toggleVideoStatus);
 stopBtn.addEventListener('click', stopVideo);
 
@@ -130,6 +140,10 @@ seekBar.addEventListener('input', () => {
 
 // Calling funct to Update progress & timestamp
 video.addEventListener('timeupdate', updateVideoTime);
+
+rewindSecBtn.addEventListener('click', () => gotoTime(-10));
+forwardSecBtn.addEventListener('click', () => gotoTime(10));
+
 
 // Volume functionality
 volumeBar.addEventListener('input', () => {
