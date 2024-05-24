@@ -9,6 +9,8 @@ const timestampCur = document.getElementById('timestamp-cur');
 const timestampDur = document.getElementById('timestamp-dur');
 const rewindSecBtn = document.getElementById('rewind-sec-btn');
 const forwardSecBtn = document.getElementById('forward-sec-btn');
+const rewindPercBtn = document.getElementById('rewind-perc-btn');
+const forwardPercBtn = document.getElementById('forward-perc-btn');
 
 const volumeBar = document.getElementById('volume-bar');
 const muteBtn = document.getElementById('mute-btn');
@@ -102,7 +104,6 @@ function updateVideoTime() {
 
 
 
-
 function gotoTime(step=0, relative=true) {
   let curTime = video.currentTime;
   let duration = video.duration;
@@ -118,6 +119,12 @@ function gotoTime(step=0, relative=true) {
   }
   video.currentTime = step;
 
+}
+
+function gotoPercent(step=0, relative=true) {
+  let duration = video.duration;
+  let sec = duration * step / 100.0;
+  gotoTime(sec, relative);
 }
 
 // Event listeners
@@ -143,6 +150,9 @@ video.addEventListener('timeupdate', updateVideoTime);
 
 rewindSecBtn.addEventListener('click', () => gotoTime(-10));
 forwardSecBtn.addEventListener('click', () => gotoTime(10));
+rewindPercBtn.addEventListener('click', () => gotoPercent(-1));
+forwardPercBtn.addEventListener('click', () => gotoPercent(1));
+
 
 
 // Volume functionality
